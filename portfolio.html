@@ -166,4 +166,554 @@
     border-radius:20px;
     margin-bottom:26px;
   }
-... (file truncated)
+  h1.headline{
+    font-family:var(--disp);
+    font-weight:600;
+    font-size:clamp(2.2rem, 5.4vw, 4rem);
+    line-height:1.06;
+    letter-spacing:-0.01em;
+    max-width:820px;
+  }
+  h1.headline .accent{color:var(--signal);}
+  .subhead{
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:600px;
+    margin-top:24px;
+  }
+  .hero-cta{
+    display:flex; gap:14px; flex-wrap:wrap;
+    margin-top:36px;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:14px;
+    padding:12px 20px;
+    border-radius:7px;
+    text-decoration:none;
+    transition:all .15s ease;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-primary:hover{background:var(--signal-dark);}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* stats strip */
+  .stats{
+    margin-top:72px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+  }
+  .stat{
+    padding:22px 24px;
+    border-right:1px solid var(--line);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{
+    font-family:var(--disp);
+    font-size:28px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .stat .lbl{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    margin-top:4px;
+    letter-spacing:0.02em;
+  }
+  @media (max-width:700px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(2){border-right:none;}
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:88px 0;}
+  section.alt{background:var(--paper-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom:44px;
+  }
+  .section-num{
+    font-family:var(--mono); font-size:13px; color:var(--ink-faint);
+  }
+  h2.section-title{
+    font-family:var(--disp);
+    font-size:clamp(1.5rem,3vw,2rem);
+    font-weight:600;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:56px;
+  }
+  .about-grid p{color:var(--ink-soft); margin-bottom:16px; max-width:56ch;}
+  .about-grid p:last-child{margin-bottom:0;}
+  .now-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 24px;
+    align-self:start;
+  }
+  .now-card .tag{
+    font-family:var(--mono); font-size:12px; color:var(--signal-dark);
+    display:flex; align-items:center; gap:6px; margin-bottom:12px;
+  }
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--signal);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1} 50%{opacity:.35}}
+  .now-card p{font-size:14.5px; color:var(--ink-soft);}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr;}}
+
+  /* ---------- EXPERIENCE ---------- */
+  .xp-row{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:40px;
+    padding:32px 0;
+    border-top:1px solid var(--line);
+  }
+  .xp-row:last-child{border-bottom:1px solid var(--line);}
+  .xp-when{font-family:var(--mono); font-size:13px; color:var(--ink-faint);}
+  .xp-role{font-family:var(--disp); font-size:20px; font-weight:600; margin-top:6px;}
+  .xp-org{color:var(--ink-soft); font-size:14.5px; margin-top:2px;}
+  ul.xp-list{list-style:none; margin-top:16px;}
+  ul.xp-list li{
+    position:relative; padding-left:20px; margin-bottom:10px;
+    color:var(--ink-soft); font-size:15px;
+  }
+  ul.xp-list li::before{
+    content:'→'; position:absolute; left:0; color:var(--signal);
+    font-family:var(--mono); font-size:13px; top:2px;
+  }
+  @media (max-width:700px){.xp-row{grid-template-columns:1fr; gap:10px;}}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  .proj-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .proj-card:hover{border-color:var(--signal); transform:translateY(-2px);}
+  .proj-title{font-family:var(--disp); font-size:19px; font-weight:600;}
+  .proj-stack{
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-faint);
+    margin-top:6px; letter-spacing:0.02em;
+  }
+  ul.proj-list{list-style:none; margin-top:16px;}
+  ul.proj-list li{
+    position:relative; padding-left:18px; margin-bottom:9px;
+    color:var(--ink-soft); font-size:14.5px;
+  }
+  ul.proj-list li::before{
+    content:''; position:absolute; left:0; top:8px;
+    width:5px; height:5px; border-radius:50%; background:var(--warm);
+  }
+  @media (max-width:760px){.proj-grid{grid-template-columns:1fr;}}
+
+  /* ---------- SKILLS ---------- */
+  .skill-row{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    gap:24px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .skill-row:last-child{border-bottom:1px solid var(--line);}
+  .skill-cat{font-family:var(--mono); font-size:13px; color:var(--ink-faint);}
+  .tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--mono); font-size:12.5px;
+    padding:6px 11px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    color:var(--ink-soft);
+    background:var(--paper-alt);
+  }
+  @media (max-width:700px){.skill-row{grid-template-columns:1fr; gap:8px;}}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:16px;
+    padding:28px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .edu-role{font-family:var(--disp); font-size:19px; font-weight:600;}
+  .edu-org{color:var(--ink-soft); font-size:14.5px; margin-top:4px;}
+  .edu-meta{font-family:var(--mono); font-size:13px; color:var(--ink-faint); text-align:right;}
+
+  /* ---------- CONTACT / FOOTER (terminal styled) ---------- */
+  footer.contact{
+    background:var(--ink);
+    color:var(--paper);
+    padding:96px 0 40px;
+  }
+  .term{
+    font-family:var(--mono);
+    font-size:14px;
+    color:#9FB0C9;
+    margin-bottom:36px;
+  }
+  .term .prompt{color:var(--signal);}
+  .term .caret{
+    display:inline-block; width:8px; height:16px; background:var(--signal);
+    margin-left:4px; vertical-align:-3px;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+  footer h2{
+    font-family:var(--disp); font-weight:600;
+    font-size:clamp(1.8rem, 4.4vw, 3rem);
+    max-width:680px;
+  }
+  footer .lede{
+    color:#9FB0C9; font-size:16px; margin-top:16px; max-width:520px;
+  }
+  .contact-email{
+    display:inline-block;
+    margin-top:32px;
+    font-family:var(--mono);
+    font-size:clamp(1.1rem,2.6vw,1.5rem);
+    color:var(--paper);
+    text-decoration:none;
+    border-bottom:1.5px solid var(--signal);
+    padding-bottom:4px;
+  }
+  .contact-email:hover{color:var(--signal);}
+  .contact-meta{
+    margin-top:44px;
+    display:flex; flex-wrap:wrap; gap:32px;
+  }
+  .contact-meta div{font-family:var(--mono); font-size:13px; color:#9FB0C9;}
+  .contact-meta a{text-decoration:none; color:#9FB0C9; transition:color .15s ease;}
+  .contact-meta a:hover{color:var(--paper);}
+  .contact-meta span{display:block; color:#5C6B85; font-size:11px; margin-bottom:6px; letter-spacing:0.05em;}
+  .foot-bottom{
+    margin-top:72px;
+    padding-top:24px;
+    border-top:1px solid #29304A;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-family:var(--mono); font-size:12px; color:#5C6B85;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <a href="#top" class="mark"><span class="dot"></span>KADIYAM.BALAJI</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <a class="btn-resume" href="mailto:k.balaji2312@gmail.com">Email me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-field" aria-hidden="true">
+      <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+        <g id="edges" stroke="#0E8F72" stroke-width="1" opacity="0.35"></g>
+        <g id="nodes"></g>
+      </svg>
+    </div>
+    <div class="wrap hero-inner">
+      <div class="eyebrow">AI / ML ENGINEER — GENERATIVE AI SYSTEMS</div>
+      <h1 class="headline">I build systems that <span class="accent">retrieve</span>, reason, and respond.</h1>
+      <p class="subhead">AI/ML engineer building Generative AI applications with RAG, LangChain and ChromaDB — plus production Django/MySQL systems and end‑to‑end automation with n8n and Retell AI. Based in Andhra Pradesh, India.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">View projects →</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="https://github.com/balaji2323" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="num">81.3%</div><div class="lbl">mAP@50 — helmet detection model</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">shipped GenAI / automation / CV projects</div></div>
+        <div class="stat"><div class="num">~5 mo</div><div class="lbl">industry experience — AIML Engineer</div></div>
+        <div class="stat"><div class="num">8.5</div><div class="lbl">CGPA / 10 — B.Tech ECE</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">01</span><h2 class="section-title">About</h2></div>
+      <div class="about-grid">
+        <div>
+          <p>I'm an early-career AI/ML engineer who likes working close to where language models meet real systems — retrieval pipelines, vector stores, and the unglamorous plumbing that makes an LLM actually useful in production.</p>
+          <p>My recent work spans Generative AI (RAG architectures with LangChain and ChromaDB, LLM-based evaluation, voice AI with Retell AI), computer vision (a YOLOv8 violation-detection pipeline), and production web systems in Django and MySQL built during my time at Syddhi Software Solutions.</p>
+          <p>I'm currently looking for full-time roles where I can go deeper on GenAI/LLM engineering — building retrieval systems, agent workflows, and the infrastructure around them.</p>
+        </div>
+        <div class="now-card">
+          <div class="tag"><span class="pulse"></span>CURRENTLY</div>
+          <p>Open to full-time AI/ML &amp; GenAI engineering roles. Comfortable moving between model-side work (RAG, prompt engineering, fine-tuning) and the backend systems that ship it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">02</span><h2 class="section-title">Experience</h2></div>
+
+      <div class="xp-row">
+        <div>
+          <div class="xp-when">Nov 2025 — Mar 2026</div>
+          <div class="xp-role">AIML Engineer</div>
+          <div class="xp-org">Syddhi Software Solutions<br>Visakhapatnam, Andhra Pradesh</div>
+        </div>
+        <ul class="xp-list">
+          <li>Engineered Django-based modules for an Electricity Billing Management System — consumer management, tariff-based bill calculation, and admin panel workflows using Python, MySQL, HTML, CSS and JavaScript.</li>
+          <li>Enhanced the Syddhi student online learning platform (Django, MySQL, HTML, CSS, JavaScript), including integrating a chatbot to support student interaction.</li>
+          <li>Built data validation and admin control logic that streamlined billing data management across multiple consumer tariff categories.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">03</span><h2 class="section-title">Projects</h2></div>
+
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-title">RecruitAI</div>
+          <div class="proj-stack">PYTHON · LANGCHAIN · GEMINI · CHROMADB · RAG · N8N · RETELL AI</div>
+          <ul class="proj-list">
+            <li>End-to-end AI recruitment platform using a RAG architecture with LangChain and ChromaDB for semantic candidate matching, automating resume parsing and ATS scoring.</li>
+            <li>LLM-based interview evaluation and candidate screening, including AI-driven phone interviews via Retell AI.</li>
+            <li>Automated shortlisting, email notifications and analytics tracking through n8n workflows integrated with Google Sheets.</li>
+          </ul>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">Real-Time Helmet Violation Detection</div>
+          <div class="proj-stack">PYTHON · YOLOV8 · OPENCV · EASYOCR · RAG · SQL</div>
+          <ul class="proj-list">
+            <li>Trained and fine-tuned a YOLOv8 object-detection model on a custom Roboflow dataset, achieving 81.3% mAP for real-time helmet violation detection.</li>
+            <li>Integrated EasyOCR-based number-plate recognition to extract vehicle registration details from violation footage.</li>
+            <li>Built automatic WhatsApp/SMS alert generation and a RAG-powered semantic search interface over violation history.</li>
+          </ul>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">AI Social Media Automation</div>
+          <div class="proj-stack">N8N · INSTAGRAM GRAPH API · LINKEDIN API · GOOGLE SHEETS</div>
+          <ul class="proj-list">
+            <li>Designed a fully automated AI-powered posting pipeline publishing AI-generated content to Instagram and LinkedIn.</li>
+            <li>Used Google Sheets as a centralized data store logging post content, timestamps and status in real time.</li>
+            <li>Connected AI content generation to the Instagram Graph API and LinkedIn API, removing manual posting effort.</li>
+          </ul>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">Online Learning Platform</div>
+          <div class="proj-stack">PYTHON · DJANGO · MYSQL · HTML/CSS/JS</div>
+          <ul class="proj-list">
+            <li>Full-stack online learning platform with secure authentication and role-based access control for Admin/Super Admin users.</li>
+            <li>Integrated an AI-powered video content analyzer to summarize educational video content for enhanced learning support.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="alt">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">04</span><h2 class="section-title">Skills</h2></div>
+
+      <div class="skill-row">
+        <div class="skill-cat">GENAI / LLM</div>
+        <div class="tags">
+          <span class="tag">LLMs</span><span class="tag">Prompt Engineering</span><span class="tag">RAG</span>
+          <span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">ChromaDB</span>
+          <span class="tag">Google Gemini</span><span class="tag">GPT</span><span class="tag">LLaMA</span>
+          <span class="tag">BERT</span><span class="tag">T5</span><span class="tag">Hugging Face</span>
+          <span class="tag">Transformers</span><span class="tag">Embeddings</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-cat">ML / VISION</div>
+        <div class="tags">
+          <span class="tag">Deep Learning</span><span class="tag">Neural Networks</span><span class="tag">Scikit-learn</span>
+          <span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">YOLOv8</span>
+          <span class="tag">OCR / EasyOCR</span><span class="tag">Object Detection</span><span class="tag">Image Classification</span>
+          <span class="tag">NLP</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-cat">BACKEND / WEB</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">FastAPI</span><span class="tag">REST API</span>
+          <span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">HTML</span><span class="tag">CSS</span>
+          <span class="tag">JavaScript</span><span class="tag">React JS</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-cat">DATA</div>
+        <div class="tags">
+          <span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+          <span class="tag">EDA</span><span class="tag">Data Cleaning</span><span class="tag">Data Visualization</span><span class="tag">Statistics</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-cat">TOOLS</div>
+        <div class="tags">
+          <span class="tag">Docker</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Linux</span>
+          <span class="tag">n8n</span><span class="tag">Retell AI</span><span class="tag">Jupyter Notebook</span><span class="tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">05</span><h2 class="section-title">Education</h2></div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-role">B.Tech, Electronics &amp; Communication Engineering</div>
+          <div class="edu-org">Vignan's Institute of Information Technology, Visakhapatnam, Andhra Pradesh</div>
+        </div>
+        <div class="edu-meta">2021 — 2025<br>CGPA 8.5 / 10</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="term">
+      <span class="prompt">balaji@portfolio</span>:~$ whoami<br>
+      AI/ML Engineer, open to work<span class="caret"></span>
+    </div>
+    <h2>Let's build something that actually ships.</h2>
+    <p class="lede">Open to full-time GenAI/LLM engineering, AI/ML and software roles. The fastest way to reach me is email.</p>
+    <a class="contact-email" href="mailto:k.balaji2312@gmail.com">k.balaji2312@gmail.com</a>
+
+    <div class="contact-meta">
+      <div><span>PHONE</span><a href="tel:+919704403064">+91 97044 03064</a></div>
+      <div><span>LINKEDIN</span><a href="https://linkedin.com/in/kadiyam-balaji" target="_blank" rel="noopener">linkedin.com/in/kadiyam-balaji</a></div>
+      <div><span>GITHUB</span><a href="https://github.com/balaji2323" target="_blank" rel="noopener">github.com/balaji2323</a></div>
+      <div><span>LOCATION</span><span style="color:#9FB0C9">Andhra Pradesh, India</span></div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Kadiyam Balaji</span>
+      <span>Built with intent, not a template.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', false);
+  }));
+
+  // embedding-space hero visual: scattered nodes + nearest-neighbor connections to a central query point
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const nodesG = document.getElementById('nodes');
+    const edgesG = document.getElementById('edges');
+    const labels = ['RAG','LangChain','ChromaDB','YOLOv8','Django','n8n','Gemini','PyTorch','FastAPI','Retell AI','MySQL','OpenCV'];
+    const W = 1200, H = 700;
+    const query = {x: W*0.62, y: H*0.42};
+    const pts = labels.map((label,i) => {
+      const angle = (i/labels.length) * Math.PI * 2 + Math.random()*0.6;
+      const r = 140 + Math.random()*260;
+      return {
+        x: query.x + Math.cos(angle)*r,
+        y: query.y + Math.sin(angle)*r*0.6,
+        label, r
+      };
+    });
+    // sort by distance to query, connect nearest 6
+    const withDist = pts.map(p => ({...p, d: Math.hypot(p.x-query.x, p.y-query.y)}));
+    withDist.sort((a,b)=>a.d-b.d);
+    const nearest = withDist.slice(0,6);
+
+    nearest.forEach(p => {
+      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1', query.x); line.setAttribute('y1', query.y);
+      line.setAttribute('x2', p.x); line.setAttribute('y2', p.y);
+      edgesG.appendChild(line);
+    });
+
+    const qCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    qCircle.setAttribute('cx', query.x); qCircle.setAttribute('cy', query.y);
+    qCircle.setAttribute('r', 6); qCircle.setAttribute('fill', '#0E8F72');
+    nodesG.appendChild(qCircle);
+    if(!reduce){
+      const ring = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      ring.setAttribute('cx', query.x); ring.setAttribute('cy', query.y);
+      ring.setAttribute('r', 6); ring.setAttribute('fill', 'none');
+      ring.setAttribute('stroke', '#0E8F72'); ring.setAttribute('stroke-width','1.5');
+      ring.style.transformOrigin = `${query.x}px ${query.y}px`;
+      ring.animate(
+        [{r:6, opacity:0.8},{r:26, opacity:0}],
+        {duration:2200, iterations:Infinity, easing:'ease-out'}
+      );
+      nodesG.appendChild(ring);
+    }
+
+    withDist.forEach(p => {
+      const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+      g.setAttribute('opacity', nearest.includes(p) ? '0.9' : '0.35');
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', p.x); c.setAttribute('cy', p.y);
+      c.setAttribute('r', 3.5); c.setAttribute('fill', nearest.includes(p) ? '#0E8F72' : '#8891A0');
+      const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x', p.x+9); t.setAttribute('y', p.y+4);
+      t.setAttribute('font-family', 'IBM Plex Mono, monospace');
+      t.setAttribute('font-size', '11');
+      t.setAttribute('fill', '#4B5468');
+      t.textContent = p.label;
+      g.appendChild(c); g.appendChild(t);
+      nodesG.appendChild(g);
+
+      if(!reduce){
+        g.animate(
+          [{transform:'translateY(0px)'},{transform:'translateY(-6px)'},{transform:'translateY(0px)'}],
+          {duration: 4000 + Math.random()*3000, iterations:Infinity, easing:'ease-in-out'}
+        );
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
